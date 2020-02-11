@@ -4,6 +4,7 @@ from pages.login_page import LoginPage
 
 
 
+
 """Тесты для MainPage"""
 
 def test_guest_can_go_to_login_page(browser):
