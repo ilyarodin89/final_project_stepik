@@ -47,4 +47,17 @@ class ProductPage(BasePage):
 
         assert product_price == message_price, "No product price in the message"
 
+    """Функция проверки, что элемент НЕ появляется на странице в течении заданного времени"""    
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_NAME_PRODUCT), \
+           "Success message is presented, but should not be"
+
+    """Функция проверки, что элемент элемент исчезает на странице в течении заданного времени"""
+    def should_be_success_message_is_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.MESSAGE_NAME_PRODUCT), \
+           "Success message is not disappeared"
+
+
+
+
 
