@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+from selenium.webdriver.common.by import By
 import time
 
 class LoginPage(BasePage):
@@ -12,10 +13,10 @@ class LoginPage(BasePage):
         assert "login" in self.browser.current_url, "подстрока login отсутствует в url браузера"
 
     def should_be_login_form(self):
-        assert self.browser.is_element_present(*LoginPageLocators.LOGIN_FORM), "LOGIN_FORM is not presented"
+        assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "LOGIN_FORM is not presented"
 
     def should_be_register_form(self):
-        assert self.browser.is_element_present(*LoginPageLocators.REGISTER_FORM), "REGISTER_FORM is not presented"
+        assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "REGISTER_FORM is not presented"
 
     def register_new_user(self):
         email = str(time.time()) + "@fakemail.org"
