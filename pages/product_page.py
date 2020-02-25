@@ -13,9 +13,7 @@ class ProductPage(BasePage):
     def click_add_button(self):
         button_add_basket = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_BASKET).click()
 
-    """Считаем формулу в алерте"""
-    def calc_function(self):
-        self.solve_quiz_and_get_code()
+
 
     """Проверяем имя товара в сообщении"""
     def message_name_product(self):

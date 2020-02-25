@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
+from .locators import BasePageLocators
+
+from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException # в начале файла
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from .locators import BasePageLocators
-import math, time
+
+import math
 
 
 
@@ -73,3 +75,9 @@ class BasePage():
     """фунция перехода в корзину"""
     def go_to_basket_page(self):
         button_go_basket = self.browser.find_element(*BasePageLocators.BUTTON_GO_TO_BASKET).click()
+
+    """функция проверки, что пользователь залогинен"""
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
+
